@@ -2,7 +2,6 @@
   hosts: localhost
   become: yes
   vars:
-    ansible_python_interpreter: /usr/bin/python3
     module: "generate-custom-certs"
     ansible_name_module: " Generate custom signed certificates | {{ module }}"
   vars_files:
@@ -48,10 +47,11 @@
         - item.cert_key_file is defined
         - item.cert_key_file != ''
       vars:
+        csr_extension: "{{ item.cert_file.split('.')[0] + '.csr' }}"
         cert_cm: "{{ item.cert_cm }}"
         is_ca_cert: "{{ item.is_ca_cert | default('false', true) }}"
         is_ca_csr: "{{ item.is_ca_csr | default('false', true) }}"
         cert_file: "{{ item.cert_file }}"
-        cert_csr_file: "{{ item.cert_csr_file | default(item.cert_file.split('.'[0]) + '.csr', true) }}"
+        cert_csr_file: "{{ item.cert_csr_file | default(csr_extension, true) }}"
         cert_key_file: "{{ item.cert_key_file }}"
       register: app_cert_generated
