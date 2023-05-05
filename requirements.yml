@@ -1,0 +1,6 @@
+---
+roles:
+  - src: https://github.com/cadjai/generate-self-signed-certificates-and-ca.git 
+    scm: git
+    name: generate-self-signed-certificates-and-ca
+

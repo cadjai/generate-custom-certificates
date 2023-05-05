@@ -1,0 +1,19 @@
+---
+certs_dir: ''
+generate_ca: 'true'
+ca_key_file: ''
+ca_csr_file: ''
+ca_cert_file: ''
+ca_cert_cm: ''
+
+app_certs:   ### Define data for each of application certs needed
+- cert_cm: ''
+  is_ca_cert: ''
+  is_ca_csr: ''
+  cert_file: ''
+  cert_csr_file: ''
+  cert_key_file: ''
+
+#####################################################################################################
+# End of user configurable variables
+#####################################################################################################
