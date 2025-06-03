@@ -5,15 +5,16 @@ ca_key_file: 'ca.key'
 ca_csr_file: 'ca.csr'
 ca_cert_file: 'ca.crt'
 ca_cert_cm: 'OpenShift Agent Test Custom CA'
+ca_san: 'DNS:changeme'
 
 app_certs:   ### Define data for each of application certs needed
 - cert_cm: 'example-https-server-service'
   is_ca_cert: 'false'
   is_ca_csr: 'false'
-  cert_file: 'registry.crt'
+  cert_file: '.crt'
   cert_csr_file: 'registry.csr'
   cert_key_file: 'registry.key'
-
+  cert_san: 'DNS:changeme,DNS:changeme2'
 #####################################################################################################
 # End of user configurable variables
 #####################################################################################################
