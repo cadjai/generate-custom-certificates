@@ -1,18 +1,18 @@
 ---
-certs_dir: ''
+certs_dir: '/tmp/custom-certs'
 generate_ca: 'true'
-ca_key_file: ''
-ca_csr_file: ''
-ca_cert_file: ''
-ca_cert_cm: ''
+ca_key_file: 'ca.key'
+ca_csr_file: 'ca.csr'
+ca_cert_file: 'ca.crt'
+ca_cert_cm: 'OpenShift Agent Test Custom CA'
 
 app_certs:   ### Define data for each of application certs needed
-- cert_cm: ''
-  is_ca_cert: ''
-  is_ca_csr: ''
-  cert_file: ''
-  cert_csr_file: ''
-  cert_key_file: ''
+- cert_cm: 'example-https-server-service'
+  is_ca_cert: 'false'
+  is_ca_csr: 'false'
+  cert_file: 'registry.crt'
+  cert_csr_file: 'registry.csr'
+  cert_key_file: 'registry.key'
 
 #####################################################################################################
 # End of user configurable variables
